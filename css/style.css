@@ -69,6 +69,18 @@ body {
   max-width: 380px;
 }
 
+.center {
+  text-align: center;
+}
+
+.login-logo {
+  display: block;
+  margin: 0 auto 16px;
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+}
+
 .eyebrow {
   font-size: 13px;
   color: #505a5f;
