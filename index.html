@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Docente | I.E. Víctor Francisco Rosales Ortega</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Pantalla de acceso -->
+<div id="login-screen" class="login-screen">
+  <div class="accent-bar"></div>
+
+  <div class="login-wrap">
+    <div class="login-box">
+      <img src="img/logo-colegio.jpg" alt="Logo del colegio" class="login-logo">
+      <p class="eyebrow center">I.E. Víctor Francisco Rosales Ortega</p>
+      <h1 class="center">Acceso restringido</h1>
+      <p class="login-desc center">Ingrese la clave proporcionada por la institución para continuar.</p>
+
+      <label for="password-input">Clave de acceso</label>
+      <input type="password" id="password-input" autocomplete="off">
+      <div id="error-msg" class="error-box hidden">
+        <p><strong>Hay un problema.</strong> La clave ingresada es incorrecta. Intente nuevamente.</p>
+      </div>
+
+      <button onclick="verificarClave()">Continuar</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Contenido principal -->
+  <div id="main-content" class="main-content hidden">
+    <div class="topbar">
+      <img src="img/logo-colegio.jpg" alt="Logo del colegio" class="topbar-logo">
+      <span class="topbar-title">Portal Docente</span>
+      <button id="btn-cerrar" class="btn-cerrar" onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
+    <div class="accent-bar"></div>
+
+    <div class="content-wrap">
+      <p class="eyebrow">I.E. Víctor Francisco Rosales Ortega</p>
+      <h1>Recursos y programas</h1>
+      <p class="intro-text">
+        Enlaces a los programas que se usarán en clase, organizados según si
+        requieren conexión a internet o se instalan directamente en el equipo.
+      </p>
+
+      <ul class="link-list">
+        <li>
+          <a href="online.html">
+            <span class="link-title">Programas online</span>
+            <span class="link-desc">Requieren conexión a internet</span>
+          </a>
+        </li>
+        <li>
+          <a href="offline.html">
+            <span class="link-title">Programas offline</span>
+            <span class="link-desc">Se instalan y funcionan sin internet</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="footer-note">Uso exclusivo para personal docente de la institución.</p>
+    </div>
+  </div>
+
+  <script>
+    const CLAVE_CORRECTA = "rosales2026"; // cámbiala por la que quieras
+
+    function verificarClave() {
+      const input = document.getElementById("password-input").value;
+      const errorBox = document.getElementById("error-msg");
+
+      if (input === CLAVE_CORRECTA) {
+        sessionStorage.setItem("acceso_docentes", "true");
+        mostrarContenido();
+      } else {
+        errorBox.classList.remove("hidden");
+      }
+    }
+
+    function mostrarContenido() {
+      document.getElementById("login-screen").classList.add("hidden");
+      document.getElementById("main-content").classList.remove("hidden");
+    }
+
+    function cerrarSesion() {
+      sessionStorage.removeItem("acceso_docentes");
+      document.getElementById("login-screen").classList.remove("hidden");
+      document.getElementById("main-content").classList.add("hidden");
+      document.getElementById("password-input").value = "";
+      document.getElementById("error-msg").classList.add("hidden");
+    }
+
+    window.onload = function () {
+      if (sessionStorage.getItem("acceso_docentes") === "true") {
+        mostrarContenido();
+      }
+    };
+
+    document.getElementById("password-input").addEventListener("keyup", function (e) {
+      if (e.key === "Enter") verificarClave();
+    });
+  </script>
+
+</body>
+</html>

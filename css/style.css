@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #ffffff;
+  color: #0b0c0c;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* --- Barra superior --- */
+.topbar, .login-topbar {
+  background: #0b0c0c;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.topbar-title {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.btn-cerrar {
+  margin-left: auto;
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn-cerrar:hover {
+  background: #ffffff;
+  color: #0b0c0c;
+}
+
+.accent-bar {
+  height: 10px;
+  background: #1d70b8;
+}
+
+/* --- Pantalla de login --- */
+.login-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 48px 20px;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 380px;
+}
+
+.eyebrow {
+  font-size: 13px;
+  color: #505a5f;
+  margin-bottom: 6px;
+}
+
+.login-box h1, .content-wrap h1 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.login-desc {
+  font-size: 16px;
+  color: #0b0c0c;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 17px;
+  border: 2px solid #0b0c0c;
+  border-radius: 0;
+  margin-bottom: 20px;
+  font-family: inherit;
+}
+
+input[type="password"]:focus {
+  outline: 3px solid #ffdd00;
+  outline-offset: 0;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #00703c;
+  color: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 0;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #005a30;
+}
+
+.error-box {
+  border-left: 5px solid #d4351c;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  background: #ffffff;
+}
+
+.error-box p {
+  font-size: 15px;
+  color: #0b0c0c;
+}
+
+/* --- Contenido principal --- */
+.content-wrap {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.intro-text {
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 52ch;
+  margin-bottom: 32px;
+}
+
+.link-list {
+  list-style: none;
+  border-top: 1px solid #b1b4b6;
+}
+
+.link-list li {
+  border-bottom: 1px solid #b1b4b6;
+}
+
+.link-list a {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 4px;
+  text-decoration: none;
+}
+
+.link-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #1d70b8;
+  text-decoration: underline;
+}
+
+.link-list a:hover .link-title {
+  color: #003078;
+}
+
+.link-desc {
+  font-size: 15px;
+  color: #505a5f;
+}
+
+.footer-note {
+  margin-top: 32px;
+  font-size: 14px;
+  color: #505a5f;
+}
