@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Programas para Instalar | Portal Docente</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -24,132 +25,251 @@
       Software educativo que se instala y funciona sin necesidad de internet.
     </p>
 
+    <div class="search-box">
+      <label for="buscador">Buscar recurso</label>
+      <input type="text" id="buscador" placeholder="Escribe el nombre de un programa..." autocomplete="off">
+      <p id="sin-resultados" class="sin-resultados hidden">No se encontraron resultados.</p>
+    </div>
+
     <h2>Software Educativo</h2>
     <ul class="link-list">
       <li>
-        <a href="https://scratch.mit.edu" target="_blank" rel="noopener">
+        <a href="https://scratch.mit.edu" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Scratch</span>
           <span class="link-desc">Programación visual para crear juegos e historias interactivas.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Desarrollado por el MIT, permite programar arrastrando bloques en vez de escribir código, lo que lo hace ideal para introducir a los alumnos en la lógica de programación desde cero, sin necesidad de saber sintaxis.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.tinkercad.com" target="_blank" rel="noopener">
-          <span class="link-title">Tinkercad</span>
-          <span class="link-desc">Diseño 3D y circuitos electrónicos básicos.</span>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.geogebra.org" target="_blank" rel="noopener">
+        <a href="https://www.geogebra.org" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">GeoGebra</span>
           <span class="link-desc">Matemáticas dinámicas: álgebra, geometría, cálculo y más.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Combina geometría, álgebra y cálculo en un solo entorno visual e interactivo. Permite graficar funciones y construir figuras geométricas que se pueden manipular en tiempo real, ideal para clases de matemática.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.arduino.cc/en/software" target="_blank" rel="noopener">
+        <a href="https://www.arduino.cc/en/software" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Arduino IDE</span>
           <span class="link-desc">Software para programar placas Arduino en proyectos de electrónica.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Entorno oficial para escribir y cargar programas en placas Arduino. Se usa en proyectos prácticos de robótica y electrónica, donde los alumnos programan sensores, luces o motores de forma física.</p>
+        </div>
       </li>
       <li>
-        <a href="https://stellarium.org" target="_blank" rel="noopener">
+        <a href="https://stellarium.org" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Stellarium</span>
           <span class="link-desc">Simulador del cielo estrellado para astronomía.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Muestra el cielo nocturno tal como se vería desde cualquier punto de la Tierra y fecha, con estrellas, planetas y constelaciones. Permite dar clases de astronomía sin depender del clima o del horario real.</p>
+        </div>
       </li>
       <li>
-        <a href="https://celestia.space" target="_blank" rel="noopener">
+        <a href="https://celestia.space" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Celestia</span>
           <span class="link-desc">Explorador espacial en 3D del sistema solar y galaxias.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Simulación tridimensional que permite "viajar" libremente por el sistema solar y más allá, acercándose a planetas y lunas. Complementa a Stellarium con una experiencia más exploratoria del espacio.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.audacityteam.org" target="_blank" rel="noopener">
+        <a href="https://www.audacityteam.org" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Audacity</span>
           <span class="link-desc">Editor de audio libre para proyectos de sonido o podcast.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Permite grabar y editar audio en varias pistas, aplicar efectos y exportar en formatos comunes como MP3 o WAV. Útil para proyectos de podcast, radio escolar o narraciones de los alumnos.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.gimp.org" target="_blank" rel="noopener">
+        <a href="https://www.gimp.org" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">GIMP</span>
           <span class="link-desc">Editor de imágenes similar a Photoshop, de código libre.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Editor de imágenes con capas, filtros y herramientas de retoque avanzadas, gratuito y de código abierto. Cubre la mayoría de funciones que un docente necesitaría para preparar material gráfico.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.blender.org" target="_blank" rel="noopener">
+        <a href="https://www.blender.org" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Blender</span>
           <span class="link-desc">Modelado y animación 3D para proyectos audiovisuales.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Suite completa de creación 3D: modelado, animación, renderizado y edición de video. Es la misma herramienta usada en producciones profesionales, gratuita y de código abierto.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.libreoffice.org" target="_blank" rel="noopener">
+        <a href="https://www.libreoffice.org" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">LibreOffice</span>
           <span class="link-desc">Suite ofimática (documentos, hojas de cálculo, presentaciones).</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Alternativa gratuita a Microsoft Office, compatible con archivos .docx, .xlsx y .pptx. Incluye procesador de texto, hoja de cálculo y presentaciones, ideal si no se cuenta con licencia de Office.</p>
+        </div>
       </li>
       <li>
-        <a href="http://freemind.sourceforge.net" target="_blank" rel="noopener">
+        <a href="http://freemind.sourceforge.net" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Freemind</span>
           <span class="link-desc">Herramienta para crear mapas mentales.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Permite organizar ideas de forma visual mediante ramas y nodos conectados. Útil para que los alumnos estructuren resúmenes, lluvias de ideas o esquemas de estudio.</p>
+        </div>
       </li>
       <li>
-        <a href="https://openboard.ch" target="_blank" rel="noopener">
+        <a href="https://openboard.ch" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">OpenBoard</span>
           <span class="link-desc">Pizarra digital interactiva para clases presenciales y virtuales.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Software de pizarra digital pensado para proyectores o pantallas táctiles. Permite escribir, importar imágenes o PDFs, y usarlo como apoyo visual durante la clase.</p>
+        </div>
       </li>
       <li>
-        <a href="http://www.sweethome3d.com" target="_blank" rel="noopener">
+        <a href="http://www.sweethome3d.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Sweet Home 3D</span>
           <span class="link-desc">Diseño de interiores en 3D para proyectos de tecnología.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Permite dibujar planos de espacios y visualizarlos en 3D con muebles y decoración. Útil en proyectos de diseño de espacios o tecnología aplicada a la vivienda.</p>
+        </div>
       </li>
       <li>
-        <a href="http://www.codeblocks.org" target="_blank" rel="noopener">
+        <a href="http://www.codeblocks.org" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">CodeBlocks</span>
           <span class="link-desc">Entorno de programación en C/C++ para nivel avanzado.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Entorno de desarrollo (IDE) para programar en C y C++, con compilador integrado. Pensado para estudiantes que ya tienen bases de programación y quieren dar el salto a lenguajes más estructurados.</p>
+        </div>
       </li>
       <li>
-        <a href="https://notepad-plus-plus.org" target="_blank" rel="noopener">
+        <a href="https://notepad-plus-plus.org" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Notepad++</span>
           <span class="link-desc">Editor de texto avanzado para programación y codificación.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Editor de texto ligero con resaltado de sintaxis para múltiples lenguajes de programación. Más ágil que un editor básico, útil para escribir código en clases introductorias de programación.</p>
+        </div>
       </li>
       <li>
-        <a href="https://camstudio.org" target="_blank" rel="noopener">
+        <a href="https://camstudio.org" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">CamStudio</span>
           <span class="link-desc">Grabador de pantalla gratuito para hacer tutoriales o presentaciones.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Graba lo que ocurre en pantalla en formato de video (AVI), útil para crear tutoriales paso a paso o grabar explicaciones que los alumnos puedan repasar después de clase.</p>
+        </div>
       </li>
       <li>
-        <a href="https://obsproject.com" target="_blank" rel="noopener">
+        <a href="https://obsproject.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">OBS Studio</span>
           <span class="link-desc">Software de grabación y transmisión de video.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Herramienta profesional gratuita para grabar pantalla o transmitir en vivo, combinando varias fuentes (cámara, pantalla, imágenes). Útil para grabar clases completas con mejor calidad que un grabador básico.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.ccleaner.com/recuva" target="_blank" rel="noopener">
+        <a href="https://www.ccleaner.com/recuva" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Recuva</span>
           <span class="link-desc">Recuperación de archivos eliminados accidentalmente.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Escanea el disco en busca de archivos borrados por error y permite intentar recuperarlos. Útil si un alumno o docente elimina accidentalmente un trabajo antes de guardarlo en otro lugar.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.foxit.com" target="_blank" rel="noopener">
+        <a href="https://www.foxit.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Foxit PDF Reader</span>
           <span class="link-desc">Lector y editor básico de archivos PDF.</span>
         </a>
-      </li>
-      <li>
-        <a href="https://www.canva.com" target="_blank" rel="noopener">
-          <span class="link-title">Canva</span>
-          <span class="link-desc">Diseño gráfico para crear presentaciones, infografías, afiches.</span>
-        </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Alternativa ligera a Adobe Reader para abrir, anotar y rellenar formularios en archivos PDF. Carga más rápido que otros lectores, útil para revisar materiales o fichas en PDF.</p>
+        </div>
       </li>
     </ul>
 
     <p class="footer-note">Uso exclusivo para personal docente de la institución.</p>
   </div>
 
+  <script>
+    const buscador = document.getElementById('buscador');
+    const sinResultados = document.getElementById('sin-resultados');
+
+    buscador.addEventListener('input', function () {
+      const termino = this.value.toLowerCase().trim();
+      const items = document.querySelectorAll('.link-list li');
+      const secciones = document.querySelectorAll('h2, h3');
+      let algunoVisible = false;
+
+      items.forEach(function (item) {
+        const texto = item.textContent.toLowerCase();
+        const coincide = texto.includes(termino);
+        item.classList.toggle('hidden', !coincide);
+        if (coincide) algunoVisible = true;
+      });
+
+      secciones.forEach(function (h) {
+        let siguiente = h.nextElementSibling;
+        let tieneVisible = false;
+        while (siguiente && siguiente.tagName !== 'H2' && siguiente.tagName !== 'H3') {
+          if (siguiente.classList && siguiente.classList.contains('link-list')) {
+            const visibles = siguiente.querySelectorAll('li:not(.hidden)');
+            if (visibles.length > 0) tieneVisible = true;
+          }
+          siguiente = siguiente.nextElementSibling;
+        }
+        h.classList.toggle('hidden', termino !== '' && !tieneVisible);
+      });
+
+      sinResultados.classList.toggle('hidden', algunoVisible || termino === '');
+    });
+  </script>
+
+  <script>
+    document.querySelectorAll('.btn-expandir').forEach(function (btn) {
+      const detalle = btn.parentElement.querySelector('.link-detalle');
+      let abierto = false;
+
+      btn.addEventListener('click', function () {
+        abierto = !abierto;
+        btn.querySelector('.icono-mas').textContent = abierto ? '−' : '+';
+
+        if (abierto) {
+          gsap.set(detalle, { height: 'auto' });
+          const alturaFinal = detalle.offsetHeight;
+          gsap.fromTo(detalle, { height: 0 }, { height: alturaFinal, duration: 0.35, ease: 'power2.out' });
+        } else {
+          gsap.to(detalle, { height: 0, duration: 0.3, ease: 'power2.in' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>

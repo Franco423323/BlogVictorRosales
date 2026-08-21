@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recursos con Internet | Portal Docente</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -24,211 +25,363 @@
       Plataformas y herramientas educativas que requieren conexión a internet.
     </p>
 
+    <div class="search-box">
+      <label for="buscador">Buscar recurso</label>
+      <input type="text" id="buscador" placeholder="Escribe el nombre de un programa..." autocomplete="off">
+      <p id="sin-resultados" class="sin-resultados hidden">No se encontraron resultados.</p>
+    </div>
+
     <h2>Plataformas Educativas</h2>
     <ul class="link-list">
       <li>
-        <a href="https://aprendoencasa.pe" target="_blank" rel="noopener">
+        <a href="https://aprendoencasa.org/" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Aprendo en Casa (MINEDU)</span>
           <span class="link-desc">Plataforma del gobierno peruano con contenidos por niveles y áreas.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Plataforma oficial del Ministerio de Educación del Perú con recursos organizados por grado y área curricular, alineados al currículo nacional. Útil como referencia oficial complementaria al material propio del docente.</p>
+        </div>
       </li>
       <li>
-        <a href="https://es.khanacademy.org" target="_blank" rel="noopener">
+        <a href="https://es.khanacademy.org" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Khan Academy</span>
           <span class="link-desc">Recursos interactivos en matemática, ciencia, programación y más.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Videos y ejercicios interactivos gratuitos, organizados en rutas de aprendizaje por tema. Permite que el alumno avance a su propio ritmo y que el docente vea su progreso.</p>
+        </div>
       </li>
       <li>
-        <a href="https://new.edmodo.com" target="_blank" rel="noopener">
+        <a href="https://new.edmodo.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Edmodo</span>
           <span class="link-desc">Red social educativa segura para compartir recursos y gestionar clases.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Funciona como una red social cerrada solo para la clase, donde el docente publica tareas, materiales y anuncios, y los alumnos comentan o entregan trabajos.</p>
+        </div>
       </li>
       <li>
-        <a href="https://classroom.google.com" target="_blank" rel="noopener">
+        <a href="https://classroom.google.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Google Classroom</span>
           <span class="link-desc">Gestión de clases virtuales, tareas y retroalimentación.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Permite crear un aula virtual donde se publican tareas, materiales y calificaciones. Se integra directamente con Google Docs, Drive y Meet.</p>
+        </div>
       </li>
       <li>
-        <a href="https://moodle.org" target="_blank" rel="noopener">
+        <a href="https://moodle.org" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Moodle</span>
           <span class="link-desc">Plataforma de aprendizaje virtual usada en muchas instituciones.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Sistema de gestión de aprendizaje (LMS) muy usado en colegios y universidades, con cursos, exámenes y foros. Más completo pero también más complejo de configurar que Classroom.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.udemy.com" target="_blank" rel="noopener">
+        <a href="https://www.udemy.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Udemy</span>
           <span class="link-desc">Plataforma con cursos online sobre múltiples temas, incluyendo escolares.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Catálogo de cursos en video sobre miles de temas, algunos gratuitos. Útil como referencia de formación complementaria, tanto para docentes como alumnos avanzados.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.coursera.org" target="_blank" rel="noopener">
+        <a href="https://www.coursera.org" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Coursera</span>
           <span class="link-desc">Cursos en línea dictados por universidades del mundo.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Cursos formales dictados por universidades reconocidas, muchos con opción gratuita de solo audición. Más orientado a formación avanzada que a uso diario en aula.</p>
+        </div>
       </li>
       <li>
-        <a href="https://quizizz.com" target="_blank" rel="noopener">
+        <a href="https://quizizz.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Quizizz</span>
           <span class="link-desc">Cuestionarios interactivos y juegos de preguntas para reforzar aprendizajes.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Permite crear cuestionarios gamificados que los alumnos responden desde su celular o laptop, con ranking en tiempo real. Bueno para repasos rápidos antes de un examen.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.brainpop.com" target="_blank" rel="noopener">
+        <a href="https://www.brainpop.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">BrainPOP</span>
           <span class="link-desc">Videos animados educativos sobre ciencia, historia, tecnología, etc.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Videos animados cortos que explican temas de forma sencilla y entretenida, con quizzes al final. Muy usado como introducción a un tema nuevo.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.duolingo.com" target="_blank" rel="noopener">
+        <a href="https://www.duolingo.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Duolingo</span>
           <span class="link-desc">Plataforma para aprender idiomas de forma gamificada.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Aprendizaje de idiomas mediante lecciones cortas tipo juego, con puntos y rachas diarias. Gratuito, ideal para reforzar el curso de inglés fuera del aula.</p>
+        </div>
       </li>
       <li>
-        <a href="https://phet.colorado.edu" target="_blank" rel="noopener">
+        <a href="https://phet.colorado.edu" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">PhET</span>
           <span class="link-desc">Simulaciones interactivas para ciencias y matemáticas.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Desarrollado por la Universidad de Colorado, ofrece simulaciones donde el alumno manipula variables (circuitos, fuerzas, funciones) y ve el resultado en tiempo real.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.tiching.com" target="_blank" rel="noopener">
+        <a href="https://www.tiching.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Tiching</span>
           <span class="link-desc">Red educativa con recursos y materiales clasificados por nivel.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Buscador y red de recursos educativos aportados por docentes de habla hispana, filtrables por curso y materia.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.educaplay.com" target="_blank" rel="noopener">
+        <a href="https://www.educaplay.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Educaplay</span>
           <span class="link-desc">Plataforma para crear y resolver actividades interactivas.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Permite crear actividades tipo crucigramas, sopas de letras, relacionar columnas y más, sin necesidad de programar. Útil para reforzar vocabulario o conceptos clave.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.genial.ly" target="_blank" rel="noopener">
+        <a href="https://www.genial.ly" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Genially</span>
           <span class="link-desc">Crea presentaciones interactivas e infografías animadas.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Editor para crear presentaciones, infografías y juegos interactivos con animaciones, mucho más dinámico que un PowerPoint tradicional.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.liveworksheets.com" target="_blank" rel="noopener">
+        <a href="https://www.liveworksheets.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Liveworksheets</span>
           <span class="link-desc">Plataforma para crear y resolver hojas de trabajo interactivas.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Convierte fichas de trabajo en PDF a versiones interactivas que el alumno completa online y que se autocalifican, ahorrando tiempo de corrección.</p>
+        </div>
       </li>
       <li>
-        <a href="https://lumio.smarttech.com" target="_blank" rel="noopener">
+        <a href="https://lumio.smarttech.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Lumio (Smart)</span>
           <span class="link-desc">Plataforma para crear clases interactivas y colaborativas.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>De la empresa SMART Technologies, permite convertir presentaciones en actividades interactivas donde todos los alumnos participan desde su dispositivo en tiempo real.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.aulaplaneta.com" target="_blank" rel="noopener">
+        <a href="https://www.aulaplaneta.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">AulaPlaneta</span>
           <span class="link-desc">Contenidos y herramientas digitales organizados por nivel y asignatura.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Del grupo editorial Planeta, ofrece recursos digitales complementarios organizados por asignatura y nivel educativo.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.pixton.com" target="_blank" rel="noopener">
+        <a href="https://www.pixton.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Pixton</span>
           <span class="link-desc">Plataforma para crear cómics educativos.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Permite a los alumnos crear historietas con personajes personalizables, útil para actividades de comprensión lectora o narrativa creativa.</p>
+        </div>
       </li>
       <li>
-        <a href="https://padlet.com" target="_blank" rel="noopener">
+        <a href="https://padlet.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Padlet</span>
-          <span class="link-desc">Muertos colaborativos para proyectos, ideas y reflexiones.</span>
+          <span class="link-desc">Muros colaborativos para proyectos, ideas y reflexiones.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Un "muro" digital compartido donde toda la clase puede publicar notas, imágenes o links al mismo tiempo, útil para lluvias de ideas o exposiciones grupales.</p>
+        </div>
       </li>
       <li>
-        <a href="https://socrative.com" target="_blank" rel="noopener">
+        <a href="https://socrative.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Socrative</span>
           <span class="link-desc">Evaluaciones en tiempo real con reportes automatizados.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Permite lanzar preguntas y ver las respuestas de toda la clase en vivo, con reportes automáticos de resultados para identificar qué se entendió menos.</p>
+        </div>
       </li>
       <li>
-        <a href="https://kahoot.com" target="_blank" rel="noopener">
+        <a href="https://kahoot.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Kahoot!</span>
           <span class="link-desc">Plataforma de quizzes gamificados para evaluaciones.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Concursos de preguntas en vivo donde los alumnos compiten desde sus dispositivos con un código de sala. Muy popular por su formato dinámico y competitivo.</p>
+        </div>
       </li>
       <li>
-        <a href="https://nearpod.com" target="_blank" rel="noopener">
+        <a href="https://nearpod.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Nearpod</span>
           <span class="link-desc">Lecciones interactivas con realidad virtual y actividades en vivo.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Convierte presentaciones en lecciones interactivas con preguntas, encuestas y hasta paseos en realidad virtual, controladas por el docente en tiempo real.</p>
+        </div>
       </li>
       <li>
-        <a href="https://info.flip.com" target="_blank" rel="noopener">
+        <a href="https://info.flip.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Flip (ex Flipgrid)</span>
           <span class="link-desc">Plataforma de videos cortos para debates estudiantiles.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Los alumnos graban videos cortos respondiendo una consigna y comentan los videos de sus compañeros, fomentando la expresión oral de forma asíncrona.</p>
+        </div>
       </li>
       <li>
-        <a href="https://wakelet.com" target="_blank" rel="noopener">
+        <a href="https://wakelet.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Wakelet</span>
           <span class="link-desc">Organizador de contenidos web en colecciones temáticas.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Permite guardar y organizar links, videos y artículos en colecciones temáticas, útil para armar una guía de recursos sobre un tema específico.</p>
+        </div>
       </li>
       <li>
-        <a href="https://bookcreator.com" target="_blank" rel="noopener">
+        <a href="https://bookcreator.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Book Creator</span>
           <span class="link-desc">Crea libros digitales interactivos con multimedia.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Los alumnos pueden crear sus propios libros digitales combinando texto, imágenes, audio y video, ideal para proyectos de lectoescritura.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.canva.com/education" target="_blank" rel="noopener">
+        <a href="https://www.canva.com/education" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Canva for Education</span>
           <span class="link-desc">Diseño gráfico gratuito para materiales educativos.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Versión gratuita de Canva pensada para docentes, con plantillas educativas y herramientas de diseño colaborativo con los alumnos.</p>
+        </div>
       </li>
       <li>
-        <a href="https://app.edu.buncee.com" target="_blank" rel="noopener">
+        <a href="https://app.edu.buncee.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Buncee</span>
           <span class="link-desc">Herramienta de storytelling y presentaciones creativas.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Editor para crear presentaciones y proyectos multimedia combinando texto, imágenes y animaciones, orientado a narrativa visual.</p>
+        </div>
       </li>
       <li>
-        <a href="https://web.seesaw.me" target="_blank" rel="noopener">
+        <a href="https://web.seesaw.me" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Seesaw</span>
           <span class="link-desc">Portafolios digitales para estudiantes y familias.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Cada alumno arma un portafolio digital de sus trabajos, que los padres también pueden ver, útil para mostrar el progreso a lo largo del año.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.peardeck.com" target="_blank" rel="noopener">
+        <a href="https://www.peardeck.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Pear Deck</span>
           <span class="link-desc">Presentaciones interactivas integradas con Google Slides.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Complemento de Google Slides que agrega preguntas y actividades interactivas directamente dentro de la presentación, sin cambiar de herramienta.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.classdojo.com" target="_blank" rel="noopener">
+        <a href="https://www.classdojo.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">ClassDojo</span>
           <span class="link-desc">Gestión de comportamiento y comunicación con padres.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Permite dar puntos por buen comportamiento o trabajo en clase, y comunicarse directamente con los padres sobre el progreso del alumno.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.symbaloo.com" target="_blank" rel="noopener">
+        <a href="https://www.symbaloo.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Symbaloo</span>
           <span class="link-desc">Organizador de enlaces web en tableros visuales.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Organiza links favoritos en un tablero de "botones" visuales, útil para dar a los alumnos un solo lugar con todos los recursos de un curso.</p>
+        </div>
       </li>
       <li>
-        <a href="https://trello.com" target="_blank" rel="noopener">
+        <a href="https://trello.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Trello</span>
           <span class="link-desc">Gestión de proyectos con tableros Kanban.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Tableros con tarjetas que se mueven entre columnas (Por hacer / Haciendo / Hecho), útil para organizar proyectos grupales de los alumnos.</p>
+        </div>
       </li>
       <li>
-        <a href="https://jamboard.google.com" target="_blank" rel="noopener">
+        <a href="https://jamboard.google.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Jamboard</span>
           <span class="link-desc">Pizarras virtuales colaborativas de Google.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Pizarra digital donde varios alumnos pueden escribir y dibujar al mismo tiempo desde sus propios dispositivos, útil para lluvias de ideas en tiempo real.</p>
+        </div>
       </li>
       <li>
-        <a href="https://miro.com" target="_blank" rel="noopener">
+        <a href="https://miro.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Miro</span>
           <span class="link-desc">Pizarras infinitas para brainstorming y mapas conceptuales.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Similar a Jamboard pero con un espacio de trabajo infinito, más orientado a mapas conceptuales complejos y planificación visual de proyectos.</p>
+        </div>
+      </li>
+      <li>
+        <a href="https://www.tinkercad.com" target="_blank" rel="noopener" class="link-header">
+          <span class="link-title">Tinkercad</span>
+          <span class="link-desc">Diseño 3D y circuitos electrónicos básicos, 100% en el navegador.</span>
+        </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Herramienta de Autodesk para modelar objetos en 3D y simular circuitos electrónicos de forma visual, funciona completamente desde el navegador sin necesidad de instalar nada, pero requiere conexión a internet.</p>
+        </div>
       </li>
     </ul>
 
@@ -237,155 +390,292 @@
     <h3>Para Imágenes</h3>
     <ul class="link-list">
       <li>
-        <a href="https://www.canva.com/magic-design" target="_blank" rel="noopener">
+        <a href="https://www.canva.com/magic-design" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Canva Magic Media</span>
           <span class="link-desc">Genera imágenes y videos con IA a partir de texto (integrado en Canva).</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Permite generar imágenes ilustrativas y videos cortos escribiendo una descripción en texto, directamente dentro del editor de Canva. Útil para crear material visual sin buscar imágenes en internet.</p>
+        </div>
       </li>
       <li>
-        <a href="https://openai.com/dall-e" target="_blank" rel="noopener">
+        <a href="https://openai.com/dall-e" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">DALL-E 3</span>
           <span class="link-desc">Crea imágenes realistas o artísticas desde descripciones textuales.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Desarrollado por OpenAI, crea imágenes detalladas a partir de una descripción escrita. Accesible gratis con límites diarios integrado en ChatGPT o Bing Image Creator.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.midjourney.com" target="_blank" rel="noopener">
+        <a href="https://www.midjourney.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Midjourney</span>
           <span class="link-desc">Generador de arte digital con IA mediante comandos en Discord.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Genera imágenes con un estilo artístico muy distintivo, ideal para ilustraciones creativas. Funciona escribiendo comandos dentro de Discord, menos intuitivo si no se conoce esa plataforma.</p>
+        </div>
       </li>
       <li>
-        <a href="https://runwayml.com" target="_blank" rel="noopener">
+        <a href="https://runwayml.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Runway ML</span>
           <span class="link-desc">Edita imágenes y videos con herramientas de IA (fondos, estilos).</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Herramienta orientada a edición de video con IA: quita fondos, genera efectos y transforma clips cortos. Útil para proyectos audiovisuales de los alumnos.</p>
+        </div>
       </li>
     </ul>
 
     <h3>Para Texto</h3>
     <ul class="link-list">
       <li>
-        <a href="https://chat.openai.com" target="_blank" rel="noopener">
+        <a href="https://chat.openai.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">ChatGPT</span>
           <span class="link-desc">Asistente de IA para generar textos, planes de clase y resúmenes.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Asistente conversacional que ayuda a redactar planes de clase, resúmenes o ejemplos de ejercicios. Requiere revisar siempre la información antes de usarla, ya que puede cometer errores.</p>
+        </div>
       </li>
       <li>
-        <a href="https://gemini.google.com" target="_blank" rel="noopener">
+        <a href="https://gemini.google.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Gemini (Google)</span>
           <span class="link-desc">Competidor de ChatGPT con integración en herramientas Google.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Asistente de IA de Google, con la ventaja de integrarse directamente con Gmail, Docs y Drive para generar contenido dentro de esas mismas herramientas.</p>
+        </div>
       </li>
       <li>
-        <a href="https://quillbot.com" target="_blank" rel="noopener">
+        <a href="https://quillbot.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">QuillBot</span>
           <span class="link-desc">Parafraseador y corrector gramatical con IA.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Reescribe textos con distinto tono o nivel de formalidad y corrige errores gramaticales, útil para revisar redacciones de los alumnos.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.copy.ai" target="_blank" rel="noopener">
+        <a href="https://www.copy.ai" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Copy.ai</span>
           <span class="link-desc">Genera contenidos creativos (ejercicios, historias) desde prompts.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Orientado originalmente a marketing, también sirve para generar ejercicios cortos o historias breves a partir de una instrucción escrita.</p>
+        </div>
       </li>
       <li>
-        <a href="https://chat.deepseek.com" target="_blank" rel="noopener">
+        <a href="https://chat.deepseek.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">DeepSeek</span>
           <span class="link-desc">Asistente de IA para generar textos, planes de clase y resúmenes.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Alternativa gratuita a ChatGPT con capacidades similares de redacción y resumen, buena opción de respaldo si otro asistente tiene límite de uso alcanzado.</p>
+        </div>
       </li>
       <li>
-        <a href="https://copilot.microsoft.com" target="_blank" rel="noopener">
+        <a href="https://copilot.microsoft.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Copilot</span>
           <span class="link-desc">Asistente de IA para generar textos, planes de clase y resúmenes.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Asistente de Microsoft, integrado con Word y Office, útil para redactar y editar documentos directamente donde ya se trabaja.</p>
+        </div>
       </li>
     </ul>
 
     <h3>Para Audio</h3>
     <ul class="link-list">
       <li>
-        <a href="https://murf.ai" target="_blank" rel="noopener">
+        <a href="https://murf.ai" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Murf.ai</span>
           <span class="link-desc">Convierte texto a voz natural en múltiples idiomas y acentos.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Transforma texto escrito en voz con sonido natural, en varios idiomas y acentos, útil para narrar presentaciones o materiales de audio.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.descript.com" target="_blank" rel="noopener">
+        <a href="https://www.descript.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Descript</span>
           <span class="link-desc">Edita audio y video transcribiendo y modificando el texto.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Edita audio o video editando directamente su transcripción de texto, como si fuera un documento de Word, simplifica mucho la edición.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.voicemod.net" target="_blank" rel="noopener">
+        <a href="https://www.voicemod.net" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Voicemod</span>
           <span class="link-desc">Modificador de voz en tiempo real para podcasts o clases interactivas.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Cambia la voz en tiempo real durante una videollamada o grabación, útil para dinámicas creativas o narraciones con distintos personajes.</p>
+        </div>
       </li>
     </ul>
 
     <h3>Para Video</h3>
     <ul class="link-list">
       <li>
-        <a href="https://www.synthesia.io" target="_blank" rel="noopener">
+        <a href="https://www.synthesia.io" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Synthesia</span>
           <span class="link-desc">Crea videos con avatares digitales que hablan tu texto.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Genera videos con un presentador virtual (avatar) que lee un texto en voz alta, sin necesidad de grabarse uno mismo.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.heygen.com" target="_blank" rel="noopener">
+        <a href="https://www.heygen.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">HeyGen</span>
           <span class="link-desc">Similar a Synthesia, con avatares multilingües.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Herramienta similar a Synthesia, con avatares que pueden hablar en varios idiomas, útil para videos educativos en distintos idiomas.</p>
+        </div>
       </li>
       <li>
-        <a href="https://invideo.io" target="_blank" rel="noopener">
+        <a href="https://invideo.io" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">InVideo</span>
           <span class="link-desc">Editor de videos con plantillas y automatización por IA.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Editor de video con plantillas listas y ayuda de IA para armar videos rápido a partir de texto o imágenes, sin experiencia previa en edición.</p>
+        </div>
       </li>
     </ul>
 
     <h3>Para Juegos Educativos</h3>
     <ul class="link-list">
       <li>
-        <a href="https://www.classcraft.com" target="_blank" rel="noopener">
+        <a href="https://www.classcraft.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Classcraft</span>
           <span class="link-desc">Plataforma que gamifica el aula con roles y misiones (usa IA para adaptación).</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Convierte la dinámica de clase en un juego de rol, con puntos, misiones y equipos, para motivar la participación y el buen comportamiento.</p>
+        </div>
       </li>
       <li>
-        <a href="https://quizlet.com/live" target="_blank" rel="noopener">
+        <a href="https://quizlet.com/live" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Quizlet Live</span>
           <span class="link-desc">Genera juegos de aprendizaje colaborativo con IA.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Modo de juego en equipo de Quizlet, donde los alumnos colaboran para responder correctamente y avanzar más rápido que otros equipos.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.magicschool.ai" target="_blank" rel="noopener">
+        <a href="https://www.prodigygame.com" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Prodigy Math</span>
-          <span class="link-desc">Asistente para docentes: genera rúbricas, planes de clase y actividades.</span>
+          <span class="link-desc">Videojuego educativo de matemáticas con aventuras y misiones por nivel.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Videojuego educativo de matemáticas donde el alumno avanza en una aventura de rol resolviendo problemas matemáticos adaptados a su nivel. El progreso y los resultados quedan disponibles para que el docente los revise.</p>
+        </div>
       </li>
     </ul>
 
     <h3>Multiuso</h3>
     <ul class="link-list">
       <li>
-        <a href="https://www.magicschool.ai" target="_blank" rel="noopener">
+        <a href="https://www.magicschool.ai" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">MagicSchool.ai</span>
           <span class="link-desc">Asistente para docentes: genera rúbricas, planes de clase y actividades.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Plataforma pensada específicamente para docentes, con decenas de herramientas de IA para generar rúbricas, planes de clase, cartas a padres y más, todo en un solo lugar.</p>
+        </div>
       </li>
       <li>
-        <a href="https://www.eduaide.ai" target="_blank" rel="noopener">
+        <a href="https://www.eduaide.ai" target="_blank" rel="noopener" class="link-header">
           <span class="link-title">Eduaide.ai</span>
           <span class="link-desc">Similar a MagicSchool, con recursos para múltiples asignaturas.</span>
         </a>
+        <button class="btn-expandir" aria-label="Ver más información"><span class="icono-mas">+</span></button>
+        <div class="link-detalle">
+          <p>Alternativa a MagicSchool.ai con enfoque similar: generación asistida de material didáctico y evaluaciones para docentes.</p>
+        </div>
       </li>
     </ul>
 
     <p class="footer-note">Uso exclusivo para personal docente de la institución.</p>
   </div>
 
+  <script>
+    const buscador = document.getElementById('buscador');
+    const sinResultados = document.getElementById('sin-resultados');
+
+    buscador.addEventListener('input', function () {
+      const termino = this.value.toLowerCase().trim();
+      const items = document.querySelectorAll('.link-list li');
+      const secciones = document.querySelectorAll('h2, h3');
+      let algunoVisible = false;
+
+      items.forEach(function (item) {
+        const texto = item.textContent.toLowerCase();
+        const coincide = texto.includes(termino);
+        item.classList.toggle('hidden', !coincide);
+        if (coincide) algunoVisible = true;
+      });
+
+      secciones.forEach(function (h) {
+        let siguiente = h.nextElementSibling;
+        let tieneVisible = false;
+        while (siguiente && siguiente.tagName !== 'H2' && siguiente.tagName !== 'H3') {
+          if (siguiente.classList && siguiente.classList.contains('link-list')) {
+            const visibles = siguiente.querySelectorAll('li:not(.hidden)');
+            if (visibles.length > 0) tieneVisible = true;
+          }
+          siguiente = siguiente.nextElementSibling;
+        }
+        h.classList.toggle('hidden', termino !== '' && !tieneVisible);
+      });
+
+      sinResultados.classList.toggle('hidden', algunoVisible || termino === '');
+    });
+  </script>
+
+  <script>
+    document.querySelectorAll('.btn-expandir').forEach(function (btn) {
+      const detalle = btn.parentElement.querySelector('.link-detalle');
+      let abierto = false;
+
+      btn.addEventListener('click', function () {
+        abierto = !abierto;
+        btn.querySelector('.icono-mas').textContent = abierto ? '−' : '+';
+
+        if (abierto) {
+          gsap.set(detalle, { height: 'auto' });
+          const alturaFinal = detalle.offsetHeight;
+          gsap.fromTo(detalle, { height: 0 }, { height: alturaFinal, duration: 0.35, ease: 'power2.out' });
+        } else {
+          gsap.to(detalle, { height: 0, duration: 0.3, ease: 'power2.in' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
