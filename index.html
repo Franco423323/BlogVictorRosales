@@ -6,62 +6,81 @@
   <title>Portal Docente | I.E. Víctor Francisco Rosales Ortega</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    document.documentElement.classList.add(
+      sessionStorage.getItem("acceso_docentes") === "true" ? "auth-on" : "auth-off"
+    );
+  </script>
 </head>
 <body>
 
-<!-- Pantalla de acceso -->
-<div id="login-screen" class="login-screen">
-  <div class="accent-bar"></div>
-
-  <div class="login-wrap">
-    <div class="login-box">
-      <img src="img/logo-colegio.jpg" alt="Logo del colegio" class="login-logo">
-      <p class="eyebrow center">I.E. Víctor Francisco Rosales Ortega</p>
-      <h1 class="center">Acceso restringido</h1>
-      <p class="login-desc center">Ingrese la clave proporcionada por la institución para continuar.</p>
-
-      <label for="password-input">Clave de acceso</label>
-      <input type="password" id="password-input" autocomplete="off">
-      <div id="error-msg" class="error-box hidden">
-        <p><strong>Hay un problema.</strong> La clave ingresada es incorrecta. Intente nuevamente.</p>
+  <!-- Pantalla de acceso -->
+  <div id="login-screen" class="login-screen">
+    <div class="accent-bar"></div>
+    <div class="login-wrap">
+      <div class="login-box">
+        <img src="img/logo-colegio.jpg" alt="Logo del colegio" class="login-logo">
+        <p class="eyebrow center">I.E. Víctor Francisco Rosales Ortega</p>
+        <h1 class="center">Acceso restringido</h1>
+        <p class="login-desc center">Ingrese la clave proporcionada por la institución para continuar.</p>
+        <label for="password-input">Clave de acceso</label>
+        <input type="password" id="password-input" autocomplete="off">
+        <div id="error-msg" class="error-box hidden">
+          <p><strong>Hay un problema.</strong> La clave ingresada es incorrecta. Intente nuevamente.</p>
+        </div>
+        <button onclick="verificarClave()">Continuar</button>
       </div>
-
-      <button onclick="verificarClave()">Continuar</button>
     </div>
   </div>
-</div>
 
   <!-- Contenido principal -->
-  <div id="main-content" class="main-content hidden">
+  <div id="main-content" class="main-content">
     <div class="topbar">
       <img src="img/logo-colegio.jpg" alt="Logo del colegio" class="topbar-logo">
       <span class="topbar-title">Portal Docente</span>
-      <button id="btn-cerrar" class="btn-cerrar" onclick="cerrarSesion()">Cerrar sesión</button>
     </div>
     <div class="accent-bar"></div>
 
+    <!-- Hero institucional -->
+    <div class="hero">
+      <img src="img/vrosales.jpg" alt="Institución Educativa Víctor Francisco Rosales Ortega" class="hero-foto">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Piura, Perú</p>
+          <h1 class="hero-title">I.E. Víctor Francisco Rosales Ortega</h1>
+          <p class="hero-desc">Institución pública orientada a la formación integral de adolescentes y jóvenes.</p>
+          <a href="institucion.html" class="hero-link">Conoce más sobre nuestra institución →</a>
+        </div>
+      </div>
+    </div>
+
     <div class="content-wrap">
-      <p class="eyebrow">I.E. Víctor Francisco Rosales Ortega</p>
-      <h1>Recursos y programas</h1>
+      <div class="session-row">
+        <button id="btn-cerrar" class="btn-cerrar" onclick="cerrarSesion()">Cerrar sesión</button>
+      </div>
+
+      <p class="eyebrow">Programas y herramientas</p>
+      <h2 class="section-title">Recursos para tus clases</h2>
       <p class="intro-text">
         Enlaces a los programas que se usarán en clase, organizados según si
         requieren conexión a internet o se instalan directamente en el equipo.
       </p>
 
-      <ul class="link-list">
-        <li>
-          <a href="online.html">
-            <span class="link-title">Programas online</span>
-            <span class="link-desc">Requieren conexión a internet</span>
-          </a>
-        </li>
-        <li>
-          <a href="offline.html">
-            <span class="link-title">Programas offline</span>
-            <span class="link-desc">Se instalan y funcionan sin internet</span>
-          </a>
-        </li>
-      </ul>
+      <section class="tiles">
+        <a href="online.html" class="tile tile-online">
+          <span class="tile-label">01</span>
+          <span class="tile-title">Recursos con Internet</span>
+          <span class="tile-desc">Plataformas y herramientas que requieren conexión</span>
+          <span class="tile-arrow">→</span>
+        </a>
+
+        <a href="offline.html" class="tile tile-offline">
+          <span class="tile-label">02</span>
+          <span class="tile-title">Programas para Instalar</span>
+          <span class="tile-desc">Software educativo que funciona sin conexión</span>
+          <span class="tile-arrow">→</span>
+        </a>
+      </section>
 
       <p class="footer-note">Uso exclusivo para personal docente de la institución.</p>
     </div>
@@ -73,7 +92,6 @@
     function verificarClave() {
       const input = document.getElementById("password-input").value;
       const errorBox = document.getElementById("error-msg");
-
       if (input === CLAVE_CORRECTA) {
         sessionStorage.setItem("acceso_docentes", "true");
         mostrarContenido();
@@ -83,23 +101,17 @@
     }
 
     function mostrarContenido() {
-      document.getElementById("login-screen").classList.add("hidden");
-      document.getElementById("main-content").classList.remove("hidden");
+      document.documentElement.classList.remove("auth-off");
+      document.documentElement.classList.add("auth-on");
     }
 
     function cerrarSesion() {
       sessionStorage.removeItem("acceso_docentes");
-      document.getElementById("login-screen").classList.remove("hidden");
-      document.getElementById("main-content").classList.add("hidden");
+      document.documentElement.classList.remove("auth-on");
+      document.documentElement.classList.add("auth-off");
       document.getElementById("password-input").value = "";
       document.getElementById("error-msg").classList.add("hidden");
     }
-
-    window.onload = function () {
-      if (sessionStorage.getItem("acceso_docentes") === "true") {
-        mostrarContenido();
-      }
-    };
 
     document.getElementById("password-input").addEventListener("keyup", function (e) {
       if (e.key === "Enter") verificarClave();
